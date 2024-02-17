@@ -15,8 +15,8 @@ export default function Home() {
     setStart(true);
     setTimeout(() => setStartFrames(true), 3000);
     if (audioRef.current) {
-      audioRef.current.volume = 0.06;
-      audioRef.current.playbackRate = 0.6;
+      audioRef.current.volume = 0.5;
+      audioRef.current.playbackRate = 0.5;
       audioRef.current
         .play()
         .catch((err) => console.error("Error playing audio:", err));
