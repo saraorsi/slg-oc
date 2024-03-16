@@ -1,6 +1,6 @@
 "use client";
 import Frame from "@/components/Frames";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const input =
@@ -11,15 +11,11 @@ export default function Home() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  useEffect(() => {
-    setTimeout(() => setStart(true), 12000);
-    setTimeout(() => setStartFrames(true), 12000);
-    setTimeout(() => playAudio(), 12000);
-  }, []);
-
   const playAudio = () => {
+    setStart(true);
+    setTimeout(() => setStartFrames(true), 3000);
     if (audioRef.current) {
-      audioRef.current.volume = 0.2;
+      audioRef.current.volume = 0.3;
       audioRef.current.playbackRate = 0.5;
       audioRef.current
         .play()
@@ -45,8 +41,10 @@ export default function Home() {
             <br />
             valt​​​Ü​​​ü​​​d by Catarina Arbusto
           </div>
-          {/* Removed the onClick from the button since we're automatically triggering the playAudio function */}
-          <button className="text-lg flicker bg-transparent py-2 px-8 text-green rounded-3xl border-solid border-2 border-[#00ff00]">
+          <button
+            onClick={playAudio}
+            className="text-lg flicker bg-transparent py-2 px-8 text-green rounded-3xl border-solid border-2 border-[#00ff00]"
+          >
             start the performance
           </button>
         </div>
